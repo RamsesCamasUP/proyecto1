@@ -1,0 +1,15 @@
+.formulario{
+    width: 55%;
+    height: 65%;
+    margin-left: 300px;
+    color: aliceblue;
+    font-size: 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-right: 50px;
+    margin-top: 100px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: url('https://papers.co/wallpaper/papers.co-sa79-wallpaper-space-blue-blur-36-3840x2400-4k-wallpaper.jpg');
+    background-size: cover;
+}
