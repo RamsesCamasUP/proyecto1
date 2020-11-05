@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ServiceService} from '../service.service';
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -10,14 +12,14 @@ export class LandingPageComponent implements OnInit {
   products = [];
   info :String = 'No hay datos';
   nameButton :String = 'Mostrar';
-  constructor(private serviceService: ServiceService) { }
+  constructor(private serviceService: ServiceService, private _router: Router) { }
 
   ngOnInit(): void {
     
   }
   onClickShow(){
     this.info = "Si hay datos";
-    this.serviceService.getProduct("products/").subscribe((data: any[])=>{
+    this.serviceService.getProduct().subscribe((data: any[])=>{
       console.log(data);
       this.products = data;
     })
@@ -33,6 +35,22 @@ export class LandingPageComponent implements OnInit {
       this.nameButton = 'Ocultar';
     }
     this.status = !this.status;
+  }
 
+  addProduct():void{
+    this._router.navigate(['addProduct'])
+  }
+  deleteProduct(id:string):void{
+    this.serviceService.deleteProduct(id).subscribe(access=>{
+      console.log("Todo bien")
+      window.location.reload();
+    },error=>{
+      console.log("Datos inválidos")
+    })
+    
+  }
+  updateProduct(id:string):void{
+    localStorage.setItem('idProducto',id);
+    this._router.navigate(['updateProduct'])
   }
 }

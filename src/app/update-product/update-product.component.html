@@ -1,0 +1,24 @@
+<app-header></app-header>
+<br><br>
+<div class="title"><h1>Editar un nuevo registro</h1></div>
+<div class="form1">
+    
+    <form class="example-form" [formGroup]="formRegistro" >
+        <mat-form-field class="example-full-width" >
+          <mat-label>Nombre Completo</mat-label>
+          <input matInput placeholder="Ingrese el nombre completo" value="{{nombre_com}}" formControlName="nombre_com">
+        </mat-form-field>
+      <br><br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Edad</mat-label>
+          <input matInput placeholder="Ingrese la edad" value="{{edad}}" formControlName="edad">
+        </mat-form-field>
+      <br><br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Correo</mat-label>
+          <input matInput placeholder="Ingrese el correo" value="{{correo}}" formControlName="correo">
+        </mat-form-field>
+        <br><br>
+        <button mat-raised-button color="primary" style="width: 100%; height:50px" (click)="updateProducto()">Ingresar</button>
+      </form>
+</div>
