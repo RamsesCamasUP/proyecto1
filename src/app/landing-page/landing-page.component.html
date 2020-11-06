@@ -14,16 +14,23 @@
     <table class="table">
         <thead class="thead-dark">
           <tr>
+            <th scope="col">Nombre Completo</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Correo</th>
             <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
+            <th scope="col">#</th>
+            <th scope="col">#</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let product of products">
-            <th scope="row">{{product.id}}</th>
-            <td>{{product.name  | uppercase}}</td>
-            <td>${{product.price}}</td>
+              <!--<th scope="row">{{product.id}}</th>-->
+              <th scope="row">{{product.nombre_com}}</th>
+              <td>{{product.edad}}</td>
+              <td>{{product.correo}}</td>
+              <td><button mat-raised-button color="primary" (click)="addProduct()">Agregar</button></td>
+              <td><button mat-raised-button color="warn" (click)="deleteProduct(product.id)">Eliminar</button></td>
+              <td><button mat-stroked-button color="accent" (click)="updateProduct(product.id)">Actualizar</button></td>
           </tr>
         </tbody>
       </table>
