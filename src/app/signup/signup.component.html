@@ -1,13 +1,13 @@
 <div class="signup">
     <div class="signup-form">
         <img src="../../assets/galaxy.png" style="width: 200px; height:100px;">
-        <form class="" action="index.html" method="post">
+         <form [formGroup]="registerFormGroup">
           <h1>Registrarse</h1>
-          <input type="text" placeholder="Nombre" class="txtb">
-          <input type="email" placeholder="Email" class="txtb">
-          <input type="password" placeholder="Contraseña" class="txtb">
-          <input type="password" placeholder="Confirmar Contraseña" class="txtb">
-          <input type="submit" value="Crear Cuenta" class="signup-btn"  routerLink="/home">
+          <input type="text" placeholder="Nombre" class="txtb" formControlName="username">
+          <input type="email" placeholder="Email" class="txtb" formControlName="email">
+          <input type="password" placeholder="Contraseña" class="txtb" formControlName="password1">
+          <input type="password" placeholder="Confirmar Contraseña" class="txtb" formControlName="password2">
+          <input type="submit" value="Crear Cuenta" class="signup-btn"  (click)="registration()">
           <a routerLink="/login">¿Ya tienes una cuenta?</a>
         </form>
       </div>

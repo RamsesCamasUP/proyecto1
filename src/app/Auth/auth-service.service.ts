@@ -36,5 +36,21 @@ export class AuthServiceService {
     };
     return this.httpCliente.post(`${this.api}api/v1/login/`,{username,password},httpOptions);
   }
+  register(username:string, email:string,password1:string, password2:string):Observable<any>{
+    const httpOptions={
+      headers : new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+    return this.httpCliente.post(`${this.api}api/v1/login/rest-auth/registration/`,{username, email, password1, password2},httpOptions);
+  }
+  signOut():Observable<any>{
+    const httpOptions={
+      headers : new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+    return this.httpCliente.post(`${this.api}api/v1/login/rest-auth/logout/`,httpOptions);
 
+  }
 }

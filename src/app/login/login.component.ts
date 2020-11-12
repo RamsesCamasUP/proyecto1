@@ -16,6 +16,9 @@ export class LoginComponent implements OnInit {
       email: ['',Validators.required],
       password: ['',Validators.required]
     })
+    if(this._authService.isAuthenticated()){
+      this._router.navigate(['dashboard'])
+    }
   }
   login():void{
     const data = this.loginFormGroup.value;
