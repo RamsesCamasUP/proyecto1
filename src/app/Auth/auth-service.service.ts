@@ -11,7 +11,7 @@ export class AuthServiceService {
   api : String = 'https://trayectoriaback1.herokuapp.com/';
   constructor(private httpCliente: HttpClient) { }
 
-  isAuthenticated():boolean{
+  public isAuthenticated():boolean{
     let user = JSON.parse(localStorage.getItem('user'));
     if(user){
       console.log(user['token'])

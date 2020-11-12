@@ -1,4 +1,4 @@
-
+import {environment} from './../environments/environment.prod';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -28,6 +28,8 @@ import {MatInputModule} from '@angular/material/input';
 
 
 
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {AngularFireModule} from '@angular/fire';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +46,8 @@ import {MatInputModule} from '@angular/material/input';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
     BrowserAnimationsModule,
     MatSliderModule,
     MatCardModule,

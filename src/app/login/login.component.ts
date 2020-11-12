@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import{AuthService} from './../services/auth.service';
+
 import {FormBuilder,FormGroup, Validators} from '@angular/forms';
 import {AuthServiceService} from '../Auth/auth-service.service';
 import {Router} from '@angular/router';
@@ -9,9 +11,12 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginFormGroup : FormGroup;
-  constructor(private _formBuilder:FormBuilder, private _authService: AuthServiceService, private _router: Router ) { }
+  constructor(private authSev : AuthService, private _formBuilder:FormBuilder, private _authService: AuthServiceService, private _router: Router ) { }
 
   ngOnInit(): void {
+    if(this._authService.isAuthenticated()){
+      this._router.navigate(['dashboard'])
+    }
     this.loginFormGroup = this._formBuilder.group({
       email: ['',Validators.required],
       password: ['',Validators.required]
@@ -19,6 +24,13 @@ export class LoginComponent implements OnInit {
     if(this._authService.isAuthenticated()){
       this._router.navigate(['dashboard'])
     }
+  }
+  async onGoogleLogin(){
+
+    this.authSev.loginGoogle().then((res)=>{
+      this._router.navigate(['/home'])
+    }).catch((err)=>{console.log(err)})
+
   }
   login():void{
     const data = this.loginFormGroup.value;
