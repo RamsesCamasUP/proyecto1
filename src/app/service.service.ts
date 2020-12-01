@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class ServiceService {
   //private REST_API_SERVER = "http://localhost:8000/";
-  private REST_API_SERVER = "https://trayectoriaback1.herokuapp.com/";
+  //private REST_API_SERVER = "https://trayectoriaback1.herokuapp.com/";
+  private REST_API_SERVER = "http://18.204.5.204/";
   constructor(private httpclient : HttpClient, private _authService :AuthServiceService) { }
 
   public getProduct(){

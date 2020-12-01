@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class AuthServiceService {
   //api : String = 'http://localhost:8000/';
-  api : String = 'https://trayectoriaback1.herokuapp.com/';
+  //api : String = 'https://trayectoriaback1.herokuapp.com/';
+  api : String = 'http://18.204.5.204/';
   constructor(private httpCliente: HttpClient) { }
 
   public isAuthenticated():boolean{
@@ -51,6 +52,5 @@ export class AuthServiceService {
       })
     };
     return this.httpCliente.post(`${this.api}api/v1/login/rest-auth/logout/`,httpOptions);
-
   }
 }
